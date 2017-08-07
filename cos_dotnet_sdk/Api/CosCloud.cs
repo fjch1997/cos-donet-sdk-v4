@@ -41,7 +41,7 @@ namespace QCloud.CosApi.Api
 			this.secretKey = secretKey;
 			this.timeOut = timeOut * 1000;
 			this.httpRequest = new Request();
-        } 
+		} 
 
         /// <summary>
         /// 设置Bucket所在的Region,例如上海sh
@@ -861,7 +861,7 @@ namespace QCloud.CosApi.Api
 		/// <returns></returns>	
 		private long getExpiredTime()
 		{
-            return DateTime.UtcNow.AddHours(8).ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
+            return DateTime.UtcNow.ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
 		}
 		
 		/// <summary>
