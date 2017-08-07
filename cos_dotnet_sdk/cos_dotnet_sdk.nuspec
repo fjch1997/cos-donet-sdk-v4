@@ -7,7 +7,7 @@
     <description>QCloud COS SDK</description>
     <authors>Tencent Cloud</authors>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="7.0.0"/>
+      <dependency id="Newtonsoft.Json" version="7.0.1"/>
     </dependencies>
   </metadata>
   <files>
