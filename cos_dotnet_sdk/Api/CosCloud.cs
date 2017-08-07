@@ -861,7 +861,7 @@ namespace QCloud.CosApi.Api
 		/// <returns></returns>	
 		private long getExpiredTime()
 		{
-			return DateTime.UtcNow.ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
+            return DateTime.UtcNow.AddHours(8).ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
 		}
 		
 		/// <summary>
