@@ -13,7 +13,7 @@ namespace QCloud.CosApi.Api
 {
 	public class CosCloud
 	{
-		const string COSAPI_CGI_URL = "http://gz.file.myqcloud.com/files/v2/";
+        private readonly string COSAPI_CGI_URL;
 		//文件大于8M时采用分片上传,小于等于8M时采用单文件上传
 		const int SLICE_UPLOAD_FILE_SIZE = 8 * 1024 * 1024;
 		//用户计算用户签名超时时间
@@ -35,6 +35,23 @@ namespace QCloud.CosApi.Api
 		/// <param name="timeOut">网络超时,默认60秒</param>
 		public CosCloud(int appId, string secretId, string secretKey, int timeOut = HTTP_TIMEOUT_TIME)
 		{
+            this.COSAPI_CGI_URL = "http://sh.file.myqcloud.com/files/v2/";
+            this.appId = appId;
+			this.secretId = secretId;
+			this.secretKey = secretKey;
+			this.timeOut = timeOut * 1000;
+			this.httpRequest = new Request();
+		} 
+		/// <summary>
+		/// CosCloud 构造方法
+		/// </summary>
+		/// <param name="appId">授权appid</param>
+		/// <param name="secretId">授权secret id</param>
+		/// <param name="secretKey">授权secret key</param>
+		/// <param name="timeOut">网络超时,默认60秒</param>
+		public CosCloud(string apiUrl, int appId, string secretId, string secretKey, int timeOut = HTTP_TIMEOUT_TIME)
+		{
+            this.COSAPI_CGI_URL = apiUrl;
 			this.appId = appId;
 			this.secretId = secretId;
 			this.secretKey = secretKey;
@@ -807,7 +824,7 @@ namespace QCloud.CosApi.Api
 		/// <returns></returns>	
 		private long getExpiredTime()
 		{
-            return DateTime.UtcNow.AddHours(8).ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
+            return DateTime.UtcNow.ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
 		}
 		
 		/// <summary>
