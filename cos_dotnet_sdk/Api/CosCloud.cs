@@ -13,7 +13,7 @@ namespace QCloud.CosApi.Api
 {
 	public class CosCloud
 	{
-		const string COSAPI_CGI_URL = "http://sh.file.myqcloud.com/files/v2/";
+		const string COSAPI_CGI_URL = "http://gz.file.myqcloud.com/files/v2/";
 		//文件大于8M时采用分片上传,小于等于8M时采用单文件上传
 		const int SLICE_UPLOAD_FILE_SIZE = 8 * 1024 * 1024;
 		//用户计算用户签名超时时间
@@ -807,7 +807,7 @@ namespace QCloud.CosApi.Api
 		/// <returns></returns>	
 		private long getExpiredTime()
 		{
-            return DateTime.UtcNow.AddHours(8).ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
+            return DateTime.Now.ToUnixTime() / 1000 + SIGN_EXPIRED_TIME;
 		}
 		
 		/// <summary>
