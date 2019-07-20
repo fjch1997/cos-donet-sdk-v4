@@ -36,30 +36,12 @@ namespace QCloud.CosApi.Api
 		/// <param name="timeOut">网络超时,默认60秒</param>
 		public CosCloud(int appId, string secretId, string secretKey, int timeOut = HTTP_TIMEOUT_TIME)
 		{
-            this.COSAPI_CGI_URL = "http://sh.file.myqcloud.com/files/v2/";
             this.appId = appId;
 			this.secretId = secretId;
 			this.secretKey = secretKey;
 			this.timeOut = timeOut * 1000;
 			this.httpRequest = new Request();
 		} 
-		/// <summary>
-		/// CosCloud 构造方法
-		/// </summary>
-		/// <param name="appId">授权appid</param>
-		/// <param name="secretId">授权secret id</param>
-		/// <param name="secretKey">授权secret key</param>
-		/// <param name="timeOut">网络超时,默认60秒</param>
-		public CosCloud(string apiUrl, int appId, string secretId, string secretKey, int timeOut = HTTP_TIMEOUT_TIME)
-		{
-            this.COSAPI_CGI_URL = apiUrl;
-			this.appId = appId;
-			this.secretId = secretId;
-			this.secretKey = secretKey;
-			this.timeOut = timeOut * 1000;
-			this.httpRequest = new Request();
-		} 
-
         /// <summary>
         /// 设置Bucket所在的Region,例如上海sh
         /// </summary>
